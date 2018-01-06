@@ -3,7 +3,7 @@ const { test } = require('../browser');
 
 describe('When viewing the home page', () => {
 
-    it('it shows Hello, world!', test(async (browser, opts) => {
+    it('it shows Hello from Rippo!', test(async (browser, opts) => {
 
         const page = await browser.newPage();
         await page.goto('http://localhost:5000');
@@ -14,7 +14,7 @@ describe('When viewing the home page', () => {
             return document.querySelector("H1").innerText
         });
 
-        expect(innerText).to.be.equal('Hello, world!')
+        expect(innerText).to.be.equal('Hello from Rippo!')
 
     }))
 })
