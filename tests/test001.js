@@ -10,11 +10,14 @@ describe('When viewing the home page', () => {
 
         await page.waitForSelector('H1');
 
+        //NOTE: The actual HTML page is sandboxed. 
+        //  To get access to the page DOM we use
+        //  evaluate.
         const innerText = await page.evaluate(() => {
-            return document.querySelector("H1").innerText
+            return document.querySelector("H1").innerText;
         });
 
-        expect(innerText).to.be.equal('Hello from Rippo!')
+        expect(innerText).to.be.equal('Hello from Rippo!');
 
     }))
 })

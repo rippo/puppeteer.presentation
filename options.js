@@ -7,7 +7,7 @@ module.exports =  {
   appUrl: args.appurl ? args.appurl : 'http://localhost:5000',
 
   puppeteer: {
-      headless: args.headless ? false : true, 
+      headless: args.show ? false : true, 
       slowMo: args.slowmo ? args.slowmo : 0
     }
   }; 

@@ -13,8 +13,12 @@ async function run() {
     const page = await browser.newPage(); 
     await page.goto('http://localhost:5000');
 
+    //this needs to be called befroe PDF
     await page.emulateMedia('screen');
-    await page.pdf( {path:'./grabs/home.pdf'}); 
+    await page.pdf({
+        path:'./grabs/home.pdf',
+        landscape: true
+    }); 
     await browser.close(); 
 }; 
 

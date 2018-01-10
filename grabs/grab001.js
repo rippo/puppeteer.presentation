@@ -10,6 +10,11 @@ async function run() {
     }); 
 
     const page = await browser.newPage(); 
+
+    //DEFAULT Viewport size is 800 x 600
+    //await page.setViewport({ width:480, height:800});
+    //await page.setViewport({ width:1024, height:800});
+
     await page.goto('http://localhost:5000');
     await page.screenshot( {path:'./grabs/home.png'}); 
     await browser.close(); 
