@@ -1,35 +1,46 @@
-const {expect } = require('chai'); 
-const {test } = require('../browser'); 
-const path = require('path'); 
-const looksSame = require('looks-same');
+const { expect } = require('chai');
+const { test } = require('../browser');
 
-describe('When I take a screenshot of the home page', () =>  {
+const EMAIL_SELECTOR = 'input[name=email]';
+const NAME_SELECTOR = 'input[name=name]';
+const SUBMIT_SELECTOR = '[id=btnSubmit]';
+const LABEL_SELECTOR = 'div.form-group';
 
-    //Image we are going to download
-    var image1 = path.join(__dirname, '../images/home.png'); 
-    //The image we are going to compare against
-    //var image2 = path.join(__dirname, '../images/ORG-home.png'); 
-    //There seems to be a differnce between chromium and chrome for screenshots
-    var image2 = path.join(__dirname, '../images/ORG-home-headless.png'); 
+describe('When testing the contact form', () => {
 
-    
-    //save home page as an image
-    it('it returns a buffer', test(async (browser, opts) =>  {
-        var page = await browser.newPage(); 
-        await page.goto(`${opts.appUrl}`); 
-        await page.waitFor('h1'); 
-        const screen = await page.screenshot( {path:'./images/home.png'}); 
-        expect(screen).to.not.equal(null);
+    var page;
+
+    //contact page
+    it('it shows the correct title', test(async (browser, opts) => {
+        page = await browser.newPage();
+        await page.goto(`${opts.appUrl}/contact`);
+
+        await page.waitFor('h1');
+        const innerText = await page.evaluate((sel) => {
+            return document.querySelector(sel).innerText;
+        }, "h1");
+
+        expect(innerText).to.be.equal('Contact Us');
     }));
 
-    it('it should be same as the original image', (done) => {
-        looksSame(image1, image2, (error, equal) => {
-            //console.log(equal);
-            expect(error).to.equal(null);
-            expect(equal).to.equal(true);
-            done();
-        });
-    });    
+   
 
-}); 
+    //now click the button
+    it('it shows thanks when we click the send enquiry button', test(async (browser, opts) => {
 
+        await page.click(SUBMIT_SELECTOR);
+
+        //in a non spa program we could use
+        //await page.waitForNavigation();
+        
+        await page.waitForSelector("[id=thanks]");
+
+        const header = await page.evaluate((sel) => {
+            return document.querySelector(sel).innerText;
+        }, "h1");
+
+        expect(header).to.be.equal("Thanks!");
+
+    }));
+ 
+});
