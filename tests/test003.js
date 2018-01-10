@@ -12,11 +12,11 @@ describe('When fetching the weather data', () => {
 
         const trLength = await page.evaluate(() => {
             return document.getElementById('result')
-            .getElementsByTagName("tbody")[0]
-            .getElementsByTagName("tr").length
+                .getElementsByTagName("tbody")[0]
+                .getElementsByTagName("tr").length;
         });
 
         expect(trLength).to.be.equal(5);
 
-    }))
-})
+    }));
+});

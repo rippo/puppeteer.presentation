@@ -6,7 +6,8 @@ describe('When viewing the home page', () => {
     it('it shows Hello from Rippo!', test(async (browser, opts) => {
 
         const page = await browser.newPage();
-        await page.goto('http://localhost:5000');
+        //notice we are using ES6 Template Strings
+        await page.goto(`${opts.appUrl}`);
 
         await page.waitForSelector('H1');
 
@@ -19,5 +20,5 @@ describe('When viewing the home page', () => {
 
         expect(innerText).to.be.equal('Hello from Rippo!');
 
-    }))
-})
+    }));
+});

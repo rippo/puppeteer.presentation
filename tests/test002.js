@@ -8,7 +8,7 @@ describe('When viewing the counter page ', () => {
     it('it shows the H1 Counter', test(async (browser, opts) => {
 
         page = await browser.newPage();
-        await page.goto('http://localhost:5000/counter');
+        await page.goto(`${opts.appUrl}/counter`);
 
         await page.waitForSelector('H1');
 
@@ -44,4 +44,5 @@ describe('When viewing the counter page ', () => {
         expect(counter).to.be.equal('3');
     }));
     
-})
+});
+
