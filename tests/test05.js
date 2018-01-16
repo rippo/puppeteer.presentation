@@ -3,7 +3,7 @@ const { test } = require('../browser');
 const MyDate = require('../utils'); 
 
 
-describe('When testing the weather forecast API endpoint', () =>  {
+describe('When testing the weather forecast JSON API endpoint', () =>  {
 
     var innerText; 
     var utils = new MyDate(new Date());
@@ -22,6 +22,8 @@ describe('When testing the weather forecast API endpoint', () =>  {
         innerText = await page.evaluate(() =>  {
             return JSON.parse(document.querySelector("body").innerText); 
         }); 
+
+        //console.log(innerText);
 
         expect(innerText.length).to.equal(5); 
     })); 

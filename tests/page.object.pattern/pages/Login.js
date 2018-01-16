@@ -38,9 +38,7 @@ class LoginPageObject {
     };    
 
     async submitTheForm () {
-        //navresponse = page.waitForNavigation(['networkidle0', 'load', 'domcontentloaded']);
         await this.page.click(this.submitButtonLocator);
-        //await navresponse;
     };    
 
     async takeScreenshot() {
@@ -79,6 +77,13 @@ class LoginPageObject {
         await this.page.type(this.passwordLocator, password);
     };
     
+    async fullLogin(email, password) {
+        await this.visit();
+        await this.awaitH1();
+        await this.fillInEmailAddress(email);
+        await this.fillInPassword(password);
+        await this.submitTheForm();
+    }
 };
 
 module.exports = LoginPageObject; 
