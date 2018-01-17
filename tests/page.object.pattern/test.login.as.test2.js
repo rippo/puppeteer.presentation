@@ -25,6 +25,7 @@ describe('when logging in as test2@test.com', () => {
     it('it returns four results when searching for a', test(async(browser, opts) => {
 
         await SearchPage.executeSearch("a");
+
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(4);
 
@@ -45,6 +46,7 @@ describe('when logging in as test2@test.com', () => {
     it('it returns one result when searching for c', test(async(browser, opts) => {
 
         await SearchPage.executeSearch("c");
+
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(1);
 
@@ -53,6 +55,7 @@ describe('when logging in as test2@test.com', () => {
     it('it returns two results when searching for e', test(async(browser, opts) => {
 
         await SearchPage.executeSearch("e");
+
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(2);
 

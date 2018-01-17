@@ -37,10 +37,6 @@ describe('when logging in as test1@test.com', () => {
 
         await SearchPage.executeSearch("a");
 
-        //await SearchPage.fillInSearchBox("a");
-        //await SearchPage.submitTheForm();
-        //await SearchPage.awaitResults();        
-        
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(3);
 
@@ -48,10 +44,8 @@ describe('when logging in as test1@test.com', () => {
 
     it('it returns one result when searching for b', test(async(browser, opts) => {
 
-        await SearchPage.fillInSearchBox("b");
-        await SearchPage.submitTheForm();
-        await SearchPage.awaitResults();
-        
+        await SearchPage.executeSearch("b");
+
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(1);
 
@@ -59,9 +53,7 @@ describe('when logging in as test1@test.com', () => {
 
     it('it returns one result when searching for c', test(async(browser, opts) => {
 
-        await SearchPage.fillInSearchBox("c");
-        await SearchPage.submitTheForm();
-        await SearchPage.awaitResults();
+        await SearchPage.executeSearch("c");
         
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(1);
@@ -71,9 +63,7 @@ describe('when logging in as test1@test.com', () => {
 
     it('it returns two results when searching for d', test(async(browser, opts) => {
 
-        await SearchPage.fillInSearchBox("d");
-        await SearchPage.submitTheForm();
-        await SearchPage.awaitResults();
+        await SearchPage.executeSearch("d");
         
         const resultLength = await SearchPage.getTableResultsLength();
         expect(resultLength).to.equal(2);

@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { test } = require('../browser');
+const { test } = require('../../browser');
 
 describe('When looking at the performance', () => {
 

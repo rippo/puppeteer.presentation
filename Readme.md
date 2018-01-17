@@ -25,13 +25,13 @@ https://medium.com/@ivanmontiel/using-that-headless-chrome-youve-been-hearing-ab
 To run the grab demos
 
 ```
-$ node grabs/grab001.js --show
+$ node grabs/grab01.js --show
 ```
 
 To run the test demos
 
 ```
-$ mocha --timeout 10000 ./runner.js tests/test001.js --show
+$ mocha --timeout 10000 ./runner.js tests/test01.js --show
 ```
 
 Ask me questions on twitter [@rippo](https://twitter.com/rippo)
