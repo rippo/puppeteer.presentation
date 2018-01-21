@@ -19,7 +19,16 @@ async function run() {
         await page.screenshot( {path:'./images/ORG-home-headless.png'}); 
     else
         await page.screenshot( {path:'./images/ORG-home.png'}); 
-    
+
+    await page.goto('http://localhost:5000/fetchdata');
+    await page.addStyleTag({path: 'css/override.css'});
+
+    if (options.puppeteer.headless)
+        await page.screenshot( {path:'./images/ORG-weather-headless.png'}); 
+    else
+        await page.screenshot( {path:'./images/ORG-weather.png'}); 
+     
+
     await browser.close(); 
 }; 
 

@@ -4,27 +4,23 @@ const path = require('path');
 const options = require('../options');
 const looksSame = require('looks-same');
 
-describe('When I take a screenshot of the home page', () =>  {
+describe('When I take a screenshot of the weather page', () =>  {
 
     //Image we are going to download
-    var image1 = path.join(__dirname, '../images/home.png'); 
+    var image1 = path.join(__dirname, '../images/weather.png'); 
 
     //The image we are going to compare against
-    var image2 = path.join(__dirname, '../images/ORG-home-headless.png'); 
-
-    //There seems to be a difference between chromium in headless
-    //  and normal mode. So if showing the browser use the non
-    //  headless image
-    if (!options.puppeteer.headless) {
-        image2 = path.join(__dirname, '../images/ORG-home.png'); 
-    }
+    var image2 = path.join(__dirname, '../images/ORG-weather-headless.png'); 
 
     //save home page as an image
     it('it returns a buffer', test(async (browser, opts) =>  {
         var page = await browser.newPage(); 
-        await page.goto(`${opts.appUrl}`); 
+        await page.goto(`${opts.appUrl}/fetchdata`);
+        
+        //await page.addStyleTag({path: 'css/override.css'});
+
         await page.waitFor('h1'); 
-        const screen = await page.screenshot( {path:'./images/home.png'}); 
+        const screen = await page.screenshot( {path:'./images/weather.png'}); 
         expect(screen).to.not.equal(null);
     }));
 
@@ -36,6 +32,14 @@ describe('When I take a screenshot of the home page', () =>  {
             done();
         });
 
+        looksSame.createDiff({
+            reference: image1,
+            current: image2,
+            diff: path.join(__dirname, '../images/diff.png'),
+            highlightColor: '#ff00ff', //color to highlight the differences
+            strict: false,//strict comparsion
+            tolerance: 2.5
+        });  
     });    
 
 }); 
