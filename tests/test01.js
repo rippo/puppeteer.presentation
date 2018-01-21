@@ -3,9 +3,11 @@ const { test } = require('../browser');
 
 describe('When viewing the home page', () => {
 
+    var page;
+
     it('it shows Hello from Rippo!', test(async (browser, opts) => {
 
-        const page = await browser.newPage();
+        page = await browser.newPage();
         //notice we are using ES6 Template Strings
         await page.goto(`${opts.appUrl}`);
 
@@ -21,4 +23,16 @@ describe('When viewing the home page', () => {
         expect(innerText).to.be.equal('Hello from Rippo!');
 
     }));
+
+    it('it shows Hello from Rippo! (2)', test(async (browser, opts) => {
+
+        //or we can use ElementHandles if we have a 
+        //  complicated selector to find!
+        var elementInnerText = await page.$('h1');
+        var value = await(await elementInnerText.getProperty("innerText")).jsonValue();
+        
+        expect(value).to.be.equal('Hello from Rippo!');
+
+    }));
+ 
 });

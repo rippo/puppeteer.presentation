@@ -307,3 +307,5 @@ __pycache__/
 
 # End of https://www.gitignore.io/api/visualstudio,visualstudiocode
 images/home.png
+grabs/rhs-content.png
+grabs/home.png

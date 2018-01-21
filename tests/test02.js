@@ -5,6 +5,7 @@ describe('When viewing the counter page ', () => {
 
     var page;
 
+
     it('it shows the H1 Counter', test(async (browser, opts) => {
 
         page = await browser.newPage();
@@ -21,28 +22,27 @@ describe('When viewing the counter page ', () => {
     }));
 
     it('and when clicking the counter it increases to 1', test(async (browser, opts) => {
-        await page.click("button.btn");
-        var counter = await page.evaluate(() => {
-            return document.querySelector("h2 strong").innerText;
-        });
+        const counter = await clickCounter();
         expect(counter).to.be.equal('1');
     }));
 
     it('and when clicking the counter it increases to 2', test(async (browser, opts) => {
-        await page.click("button.btn");
-        var counter = await page.evaluate(() => {
-            return document.querySelector("h2 strong").innerText;
-        });
+        const counter = await clickCounter();
         expect(counter).to.be.equal('2');
     }));
 
     it('and when clicking the counter it increases to 3', test(async (browser, opts) => {
-        await page.click("button.btn");
-        var counter = await page.evaluate(() => {
-            return document.querySelector("h2 strong").innerText;
-        });
+        const counter = await clickCounter();
         expect(counter).to.be.equal('3');
     }));
+
+    async function clickCounter() {
+        await page.click("button.btn");
+        return await page.evaluate(() => {
+            return document.querySelector("h2 strong").innerText;
+        });
+    };
+ 
     
 });
 
