@@ -23,6 +23,8 @@ async function run() {
     await page.goto('http://localhost:5000/fetchdata');
     await page.addStyleTag({path: 'css/override.css'});
 
+    await page.waitFor('#result'); 
+ 
     if (options.puppeteer.headless)
         await page.screenshot( {path:'./images/ORG-weather-headless.png'}); 
     else
