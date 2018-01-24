@@ -32,7 +32,7 @@ describe('When testing the contact form', () => {
 
         await page.click(SUBMIT_SELECTOR);
 
-        //in a non spa program we could use
+        //in a non spa program we could use. WITH CARE!
         //await page.waitForNavigation();
         
         await page.waitForSelector("[id=thanks]");
