@@ -12,7 +12,7 @@ describe('When looking at the performance', () => {
 
         const performanceTiming = await page.evaluate(() => 
             JSON.stringify(window.performance));
-        console.log(performanceTiming);           
+        //console.log(performanceTiming);           
 
         //lets get how long the page took to server
         const timeElasped = await page.evaluate(
