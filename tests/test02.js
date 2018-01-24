@@ -3,8 +3,7 @@ const { test } = require('../browser');
 
 describe('When viewing the counter page ', () => {
 
-    var page;
-
+    let page;
 
     it('it shows the H1 Counter', test(async (browser, opts) => {
 

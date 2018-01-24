@@ -22,10 +22,10 @@ async function run() {
     //or take a screen shot of an element
     // ElementHandle represents an in-page DOM element. 
     // ElementHandles can be created with the page.$ method.
-    //var element = await page.$('div.col-md-9');
-    //await element.screenshot({
+    // var element = await page.$('div.col-md-9');
+    // await element.screenshot({
     //    path:'./grabs/rhs-content.png',
-    //}); 
+    // }); 
 
 
     await browser.close(); 

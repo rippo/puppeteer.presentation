@@ -3,7 +3,7 @@ const { test } = require('../browser');
 
 describe('When viewing the home page', () => {
 
-    var page;
+    let page;
 
     it('it shows Hello from Rippo!', test(async (browser, opts) => {
 
@@ -29,7 +29,8 @@ describe('When viewing the home page', () => {
         //or we can use ElementHandles if we have a 
         //  complicated selector to find!
         var elementInnerText = await page.$('h1');
-        var value = await(await elementInnerText.getProperty("innerText")).jsonValue();
+        var prop = await elementInnerText.getProperty("innerText");
+        var value = await(prop).jsonValue();
         
         expect(value).to.be.equal('Hello from Rippo!');
 
