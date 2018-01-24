@@ -3,7 +3,7 @@ const { test } = require('../../browser');
 
 describe('When looking at the metrics', () => {
 
-    var maxDuration = 0.30;
+    let maxDuration = 0.30;
 
     it(`it only takes at most ${maxDuration} to render the scripts`, test(async (browser, opts) => {
 
@@ -14,7 +14,7 @@ describe('When looking at the metrics', () => {
         await page.waitForSelector('h1');
         const metrics = await page.metrics();
         
-        console.log(metrics);
+        //console.log(metrics);
 
         //lets get how long the page took to run the scripts
         expect(metrics.ScriptDuration).to.be.at.most(maxDuration);
