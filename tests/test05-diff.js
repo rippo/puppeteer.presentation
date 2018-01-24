@@ -1,25 +1,25 @@
 const {expect } = require('chai'); 
 const {test } = require('../browser'); 
-const path = require('path'); 
 const options = require('../options');
+const path = require('path'); 
 const looksSame = require('looks-same');
 
 describe('When I take a screenshot of the weather page', () =>  {
 
     //Image we are going to download
-    var image1 = path.join(__dirname, '../images/weather.png'); 
+    let image1 = path.join(__dirname, '../images/weather.png'); 
 
     //The image we are going to compare against
-    var image2 = path.join(__dirname, '../images/ORG-weather-headless.png'); 
+    let image2 = path.join(__dirname, '../images/ORG-weather-headless.png'); 
 
     //save home page as an image
     it('it returns a buffer', test(async (browser, opts) =>  {
-        var page = await browser.newPage(); 
+        let page = await browser.newPage(); 
         await page.goto(`${opts.appUrl}/fetchdata`);
         
-        await page.addStyleTag({path: 'css/override.css'});
+        //await page.addStyleTag({path: 'css/override.css'});
 
-        await page.waitFor('h1'); 
+        await page.waitFor('#result'); 
         const screen = await page.screenshot( {path:'./images/weather.png'}); 
         expect(screen).to.not.equal(null);
     }));
