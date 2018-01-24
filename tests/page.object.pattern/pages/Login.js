@@ -5,15 +5,15 @@ class LoginPageObject {
         this.browser = browser; 
         this.options = options; 
 
-        this.emailLocator = 'input[id="Email"]'
-        this.passwordLocator = 'input[id="Password"]'
-        this.submitButtonLocator = 'form input[type="submit"]'
+        this.emailLocator = 'input[id="Email"]';
+        this.passwordLocator = 'input[id="Password"]';
+        this.submitButtonLocator = 'form input[type="submit"]';
 
-        this.emailRequiredValidationLocator = '[data-valmsg-for="Email"]'
+        this.emailRequiredValidationLocator = '[data-valmsg-for="Email"]';
         this.emailValidationMessage = "Email is required"; 
         this.unknownUserValidationMessage = "User could not be found";
 
-        this.passwordRequiredValidationLocator = '[data-valmsg-for="Password"]'
+        this.passwordRequiredValidationLocator = '[data-valmsg-for="Password"]';
         this.passwordValidationMessage = "Password is required"; 
 
         var htmlPage = "/login"; 
@@ -83,8 +83,7 @@ class LoginPageObject {
         await this.fillInEmailAddress(email);
         await this.fillInPassword(password);
         await this.submitTheForm();
-    }
+    };
 };
 
 module.exports = LoginPageObject; 
-

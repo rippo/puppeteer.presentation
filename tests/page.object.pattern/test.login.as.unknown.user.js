@@ -1,11 +1,10 @@
-
 const { expect } = require('chai');
 const { test } = require('../../browser');
 const loginPage  = require('./pages/Login');
 
 describe('When trying to login as an unknown user', () => {
 
-    var LoginPage;
+    let LoginPage;
 
     it('it shows the title Login', test(async (browser, opts) => {
 

@@ -1,4 +1,3 @@
-
 const { expect } = require('chai');
 const { test } = require('../../browser');
 const loginPage  = require('./pages/Login');
@@ -6,7 +5,7 @@ const searchPage = require('./pages/Search');
 
 describe('when logging in as test1@test.com', () => {
 
-    var LoginPage, SearchPage;
+    let LoginPage, SearchPage;
 
     it('it logs me in and shows the search page', test(async (browser, opts) => {
 
