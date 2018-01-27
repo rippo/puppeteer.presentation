@@ -9,7 +9,7 @@ To install type
 ```
 $ yarn init
 $ yarn add --dev puppeteer mocha chai
-$ yarn add --dev yargs looks-same chai-string
+$ yarn add --dev yargs looks-same
 ````
 
 Demo website can be found at:
