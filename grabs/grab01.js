@@ -27,6 +27,8 @@ async function run() {
     //or take a screen shot of an element
     // ElementHandle represents an in-page DOM element. 
     // ElementHandles can be created with the page.$ method.
+    // Seems to have an issue of clipping if browser is not
+    //  in headless mode!
     // var element = await page.$('div.col-md-9');
     // await element.screenshot({
     //    path:'./grabs/rhs-content.png',
