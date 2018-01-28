@@ -12,7 +12,8 @@ describe('When fetching the weather data', () => {
         //Every time you ask for a new resource, button click, 
         //  page goto form post then ALWAYS do a waitForXXX.
         //Even if documentation says you shouldn't need to!
-        //Sorts out 99% of you issues 
+        //Will sort out 99% of you issues!
+        //  Caveat - FALL THROUGH!
         await page.waitForSelector('table#result');
 
         //Count now of TRS in table, crude but works!
