@@ -54,7 +54,7 @@ class SearchPageObject {
         await this.page.waitForSelector(this.tableLocator)
     };
 
-        async awaitNoResults() {
+    async awaitNoResults() {
         await this.page.waitForSelector(this.noResultsLocator)
     };    
 
