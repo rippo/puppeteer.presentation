@@ -5,6 +5,7 @@ describe('When viewing the counter page ', () => {
 
     let page;
 
+    //Lets make sure we are on the counter page 
     it('it shows the H1 Counter', test(async (browser, opts) => {
 
         page = await browser.newPage();
@@ -20,16 +21,19 @@ describe('When viewing the counter page ', () => {
 
     }));
 
+    //clickity click time!
     it('and when clicking the counter it increases to 1', test(async (browser, opts) => {
         const counter = await clickCounter();
         expect(counter).to.be.equal('1');
     }));
 
+    //clickity time again!
     it('and when clicking the counter it increases to 2', test(async (browser, opts) => {
         const counter = await clickCounter();
         expect(counter).to.be.equal('2');
     }));
 
+    //what more clickity clicking, c'mon!
     it('and when clicking the counter it increases to 3', test(async (browser, opts) => {
         const counter = await clickCounter();
         expect(counter).to.be.equal('3');
