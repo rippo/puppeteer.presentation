@@ -7,10 +7,10 @@ const looksSame = require('looks-same');
 describe('When I take a screenshot of the weather page', () =>  {
 
     //Image we are going to download
-    let image1 = path.join(__dirname, '../images/weather.png'); 
+    let downloadedImage = path.join(__dirname, '../images/weather.png'); 
 
     //The image we are going to compare against
-    let image2 = path.join(__dirname, '../images/ORG-weather-headless.png'); 
+    let baseImage = path.join(__dirname, '../images/ORG-weather-headless.png'); 
 
     //save home page as an image
     it('it returns a buffer', test(async (browser, opts) =>  {
@@ -25,7 +25,7 @@ describe('When I take a screenshot of the weather page', () =>  {
     }));
 
     it('it should be same as the original image', (done) => {
-        looksSame(image1, image2, (error, equal) => {
+        looksSame(downloadedImage, baseImage, (error, equal) => {
             //console.log(equal);
             expect(error).to.equal(null);
             expect(equal).to.equal(true);
@@ -33,8 +33,8 @@ describe('When I take a screenshot of the weather page', () =>  {
         });
 
         looksSame.createDiff({
-            reference: image1,
-            current: image2,
+            reference: baseImage,
+            current: downloadedImage,
             diff: path.join(__dirname, '../images/diff.png'),
             highlightColor: '#ff00ff', //color to highlight the differences
             strict: false,//strict comparsion
