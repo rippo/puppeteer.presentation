@@ -29,7 +29,7 @@ declare interface SearchPageObject {
 	/**
 	 * 
 	 */
-	getH1(): void;
+	getH1Content(): void;
 		
 	/**
 	 * 

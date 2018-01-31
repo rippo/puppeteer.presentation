@@ -13,7 +13,7 @@ describe('When trying to login as an unknown user', () => {
         await LoginPage.visit();
         await LoginPage.awaitH1();
 
-        const innerText = await LoginPage.getH1();
+        const innerText = await LoginPage.getH1Content();
         expect(innerText).to.be.equal('Login');
     }));
 

@@ -16,7 +16,7 @@ describe('when logging in as test2@test.com', () => {
         await SearchPage.visit(2);
         await SearchPage.awaitH1();
 
-        const innerText = await SearchPage.getH1();        
+        const innerText = await SearchPage.getH1Content();        
         expect(innerText).to.equal("Search");
     
     }));

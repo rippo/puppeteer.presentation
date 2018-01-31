@@ -28,7 +28,7 @@ declare interface LoginPageObject {
 	/**
 	 * 
 	 */
-	getH1(): void;
+	getH1Content(): void;
 		
 	/**
 	 * 

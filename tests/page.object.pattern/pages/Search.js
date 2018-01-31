@@ -29,7 +29,7 @@ class SearchPageObject {
         await this.page.waitForSelector(this.h1Locator);
     };
 
-    async getH1() {
+    async getH1Content() {
         return await this.page.evaluate(() => {
             return document.querySelector("h1").innerText;
         });

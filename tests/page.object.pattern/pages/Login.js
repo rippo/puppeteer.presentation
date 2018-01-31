@@ -31,7 +31,7 @@ class LoginPageObject {
         await this.page.waitForSelector('H1');
     };
 
-    async getH1() {
+    async getH1Content() {
         return await this.page.evaluate(() => {
             return document.querySelector("H1").innerText;
         });
