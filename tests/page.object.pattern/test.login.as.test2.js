@@ -37,7 +37,7 @@ describe('when logging in as test2@test.com', () => {
         await SearchPage.submitTheForm();
         await SearchPage.awaitNoResults();
         
-        const resultLength = await SearchPage.getNoResultsIsShown();
+        const resultLength = await SearchPage.isNoResultsMessageShown();
         expect(resultLength).to.equal(true);
 
     }));    

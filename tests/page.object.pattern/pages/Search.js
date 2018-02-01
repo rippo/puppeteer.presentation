@@ -69,7 +69,7 @@ class SearchPageObject {
              , this.tableLocator)
      };
      
-     async getValidationMessageIsShown() {
+     async isValidationMessageShown() {
 
         await this.page.waitForSelector(this.requiredValidationLocator)
 
@@ -81,7 +81,7 @@ class SearchPageObject {
         return msg === this.validationMessage;
     }; 
 
-    async getNoResultsIsShown() {
+    async isNoResultsMessageShown() {
 
         await this.page.waitForSelector(this.noResultsLocator)
 

@@ -26,7 +26,7 @@ describe('when logging in as test1@test.com', () => {
         await SearchPage.awaitH1();
         await SearchPage.submitTheForm();
         
-        const validationShown = await SearchPage.getValidationMessageIsShown();
+        const validationShown = await SearchPage.isValidationMessageShown();
         expect(validationShown).to.equal(true);
 
     }));    

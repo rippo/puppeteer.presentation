@@ -44,19 +44,19 @@ declare interface LoginPageObject {
 	 * 
 	 * @return  
 	 */
-	getEmailValidationMessageIsShown(): boolean;
+	isEmailValidationMessageShown(): boolean;
 		
 	/**
 	 * 
 	 * @return  
 	 */
-	getPasswordValidationMessageIsShown(): boolean;
+	isPasswordValidationMessageShown(): boolean;
 		
 	/**
 	 * 
 	 * @return  
 	 */
-	getUnknownUserValidationMessageIsShown(): boolean;
+	isUnknownUserValidationMessageShown(): boolean;
 		
 	/**
 	 * 

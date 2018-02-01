@@ -66,13 +66,13 @@ declare interface SearchPageObject {
 	 * 
 	 * @return  
 	 */
-	getValidationMessageIsShown(): boolean;
+	isValidationMessageShown(): boolean;
 		
 	/**
 	 * 
 	 * @return  
 	 */
-	getNoResultsIsShown(): boolean;
+	isNoResultsMessageShown(): boolean;
 		
 	/**
 	 * 

@@ -47,7 +47,7 @@ class LoginPageObject {
         await this.page.screenshot( {path:'./images/login.png'});     
     };    
 
-    async getEmailValidationMessageIsShown() {
+    async isEmailValidationMessageShown() {
         var msg = await this.page.evaluate((selector) => {
             return document.querySelector(selector).innerText;
         }, this.emailRequiredValidationLocator);
@@ -55,7 +55,7 @@ class LoginPageObject {
         return msg === this.emailValidationMessage;
     };    
 
-    async getPasswordValidationMessageIsShown() {
+    async isPasswordValidationMessageShown() {
         var msg = await this.page.evaluate((selector) => {
             return document.querySelector(selector).innerText;
         }, this.passwordRequiredValidationLocator);
@@ -63,7 +63,7 @@ class LoginPageObject {
         return msg === this.passwordValidationMessage;
     }; 
 
-    async getUnknownUserValidationMessageIsShown() {
+    async isUnknownUserValidationMessageShown() {
         var msg = await this.page.evaluate((selector) => {
             return document.querySelector(selector).innerText;
         }, this.emailRequiredValidationLocator);

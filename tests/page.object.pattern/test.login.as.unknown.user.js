@@ -26,13 +26,13 @@ describe('When trying to login as an unknown user', () => {
 
         await LoginPage.awaitH1();
         
-        const visible = await LoginPage.getEmailValidationMessageIsShown();
+        const visible = await LoginPage.isEmailValidationMessageShown();
         expect(visible).to.be.equal(true);
     }));
 
     it('it shows the password validation message', test(async (browser, opts) => {
 
-        const visible = await LoginPage.getPasswordValidationMessageIsShown();
+        const visible = await LoginPage.isPasswordValidationMessageShown();
         expect(visible).to.be.equal(true);
 
     }));
@@ -43,7 +43,7 @@ describe('When trying to login as an unknown user', () => {
         await LoginPage.submitTheForm();
         await LoginPage.awaitH1();
         
-        const visible = await LoginPage.getEmailValidationMessageIsShown();
+        const visible = await LoginPage.isEmailValidationMessageShown();
         expect(visible).to.be.equal(false);
 
     }));
@@ -55,7 +55,7 @@ describe('When trying to login as an unknown user', () => {
          await LoginPage.awaitH1();
         
          //await LoginPage.takeScreenshot();
-         const visible = await LoginPage.getUnknownUserValidationMessageIsShown();
+         const visible = await LoginPage.isUnknownUserValidationMessageShown();
          expect(visible).to.be.equal(true);
 
      }));
