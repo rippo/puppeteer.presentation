@@ -5,6 +5,7 @@ class SearchPageObject {
         this.browser = browser; 
         this.options = options; 
 
+        this.pageH1Text = "Search"
         this.h1Locator = '#search';
         this.searchLocator = 'input[id="Query"]';
         this.submitButtonLocator = 'form input[type="submit"]';

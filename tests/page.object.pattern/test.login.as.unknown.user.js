@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const { test } = require('../../browser');
+//This is the page object file
 const loginPage  = require('./pages/Login');
 
 describe('When trying to login as an unknown user', () => {
@@ -8,17 +9,19 @@ describe('When trying to login as an unknown user', () => {
 
     it('it shows the title Login', test(async (browser, opts) => {
 
+        //set up the login page object
         LoginPage = new loginPage(browser, opts);
 
         await LoginPage.visit();
         await LoginPage.awaitH1();
 
         const innerText = await LoginPage.getH1Content();
-        expect(innerText).to.be.equal('Login');
+        expect(innerText).to.be.equal(LoginPage.pageH1Text);
     }));
 
     it('it shows the email validation message', test(async (browser, opts) => {
 
+        //in effect submit a blank form
         await LoginPage.submitTheForm();
 
         await LoginPage.awaitH1();

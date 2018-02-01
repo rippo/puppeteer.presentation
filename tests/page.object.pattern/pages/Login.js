@@ -5,6 +5,7 @@ class LoginPageObject {
         this.browser = browser; 
         this.options = options; 
 
+        this.pageH1Text = "Login"
         this.emailLocator = 'input[id="Email"]';
         this.passwordLocator = 'input[id="Password"]';
         this.submitButtonLocator = 'form input[type="submit"]';
@@ -30,6 +31,7 @@ class LoginPageObject {
     async awaitH1() {
         await this.page.waitForSelector('H1');
     };
+
 
     async getH1Content() {
         return await this.page.evaluate(() => {
