@@ -19,7 +19,7 @@ declare interface SearchPageObject {
 	 * 
 	 * @param id 
 	 */
-	visit(id : any): void;
+	visit(id : number): void;
 		
 	/**
 	 * 
@@ -40,7 +40,7 @@ declare interface SearchPageObject {
 	 * 
 	 * @param query 
 	 */
-	fillInSearchBox(query : any): void;
+	fillInSearchBox(query : string): void;
 		
 	/**
 	 * 
@@ -78,5 +78,5 @@ declare interface SearchPageObject {
 	 * 
 	 * @param letter 
 	 */
-	executeSearch(letter : any): void;
+	executeSearch(letter : string): void;
 }

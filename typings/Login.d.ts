@@ -68,12 +68,12 @@ declare interface LoginPageObject {
 	 * 
 	 * @param password 
 	 */
-	fillInPassword(password : any): void;
+	fillInPassword(password : string): void;
 		
 	/**
 	 * 
 	 * @param email 
 	 * @param password 
 	 */
-	fullLogin(email : any, password : any): void;
+	fullLogin(email : string, password : string): void;
 }
