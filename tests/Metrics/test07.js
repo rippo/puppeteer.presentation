@@ -3,7 +3,7 @@ const { test } = require('../../browser');
 
 describe('When looking at the metrics', () => {
 
-    let maxDuration = 0.30;
+    let maxDuration = 0.35;
 
     it(`it only takes at most ${maxDuration} to render the scripts`, test(async (browser, opts) => {
 
