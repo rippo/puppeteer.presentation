@@ -13,8 +13,8 @@ describe('When viewing the counter page ', () => {
 
         await page.waitForSelector('H1');
 
-        const innerText = await page.evaluate(() => {
-            return document.querySelector("H1").innerText;
+        const innerText = await page.$eval('H1', h1 => {
+            return h1.innerText;
         });
 
         expect(innerText).to.be.equal('Counter');
@@ -41,8 +41,8 @@ describe('When viewing the counter page ', () => {
 
     async function clickCounter() {
         await page.click("button.btn");
-        return await page.evaluate(() => {
-            return document.querySelector("h2 strong").innerText;
+        return await page.$eval('h2 strong', h2 => {
+            return h2.innerText;
         });
     };
  

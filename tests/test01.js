@@ -26,12 +26,10 @@ describe('When viewing the home page', () => {
 
     it('it shows Hello from Rippo! (2)', test(async (browser, opts) => {
 
-        //or we can use ElementHandles if we have a 
-        //  complicated selector to find!
-        var elementInnerText = await page.$('h1');
-        var prop = await elementInnerText.getProperty("innerText");
-        var value = await(prop).jsonValue();
-        
+        //This method runs document.querySelector
+        const value = await page.$eval('h1', h1 => {
+            return h1.innerText;
+        });
         expect(value).to.be.equal('Hello from Rippo!');
 
     }));

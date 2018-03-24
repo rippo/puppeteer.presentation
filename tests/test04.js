@@ -16,14 +16,13 @@ describe('When testing the contact form', () => {
         await page.goto(`${opts.appUrl}/contact`);
 
         await page.waitFor('h1');
-        const innerText = await page.evaluate((sel) => {
-            return document.querySelector(sel).innerText;
-        }, "h1");
+        const innerText = await page.$eval('H1', h1 => {
+            return h1.innerText;
+        });
 
         expect(innerText).to.be.equal('Contact Us');
     }));
 
-   
     //FILL IN HERE
 
 
@@ -34,15 +33,15 @@ describe('When testing the contact form', () => {
 
         //in a non spa program we could use. WITH CARE!
         //await page.waitForNavigation();
-        
+
         await page.waitForSelector("[id=thanks]");
 
-        const header = await page.evaluate((sel) => {
-            return document.querySelector(sel).innerText;
-        }, "h1");
+        const header = await page.$eval('H1', h1 => {
+            return h1.innerText;
+        });
 
         expect(header).to.be.equal("Thanks!");
 
     }));
- 
+
 });
