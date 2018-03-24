@@ -31,15 +31,15 @@ class SearchPageObject {
     };
 
     async getH1Content() {
-        return await this.page.evaluate(() => {
-            return document.querySelector("h1").innerText;
+        return await this.page.$eval("H1", h1 => {
+            return h1.innerText;
         });
     };    
 
     async clearSearchBox() {
-        await this.page.evaluate((locator) => {
-            document.querySelector(locator).value = '';
-        }, this.searchLocator);
+        await this.page.$eval(this.searchLocator, e => {
+            e.value = '';
+        });
     }
 
     async fillInSearchBox(query) {
@@ -73,9 +73,9 @@ class SearchPageObject {
 
         await this.page.waitForSelector(this.requiredValidationLocator)
 
-        var msg = await this.page.evaluate((selector) => {
-            return document.querySelector(selector).innerText;
-        }, this.requiredValidationLocator);
+        var msg = await this.page.$eval(this.requiredValidationLocator, e => {
+            return e.innerText;
+        });
 
 
         return msg === this.validationMessage;
@@ -85,9 +85,9 @@ class SearchPageObject {
 
         await this.page.waitForSelector(this.noResultsLocator)
 
-        var element = await this.page.evaluate((selector) => {
-            return document.querySelector(selector);
-        }, this.noResultsLocator);
+        var element = await this.page.$eval(this.noResultsLocator, e => {
+            return e;
+        });
 
         return element !== null;
     };     

@@ -34,8 +34,8 @@ class LoginPageObject {
 
 
     async getH1Content() {
-        return await this.page.evaluate(() => {
-            return document.querySelector("H1").innerText;
+        return await this.page.$eval("H1", h1 => {
+            return h1.innerText;
         });
     };    
 
@@ -48,25 +48,25 @@ class LoginPageObject {
     };    
 
     async isEmailValidationMessageShown() {
-        var msg = await this.page.evaluate((selector) => {
-            return document.querySelector(selector).innerText;
-        }, this.emailRequiredValidationLocator);
+        var msg = await this.page.$eval(this.emailRequiredValidationLocator, e => {
+            return e.innerText;
+        });
 
         return msg === this.emailValidationMessage;
     };    
 
     async isPasswordValidationMessageShown() {
-        var msg = await this.page.evaluate((selector) => {
-            return document.querySelector(selector).innerText;
-        }, this.passwordRequiredValidationLocator);
+        var msg = await this.page.$eval(this.passwordRequiredValidationLocator, e => {
+            return e.innerText;
+        }, );
 
         return msg === this.passwordValidationMessage;
     }; 
 
     async isUnknownUserValidationMessageShown() {
-        var msg = await this.page.evaluate((selector) => {
-            return document.querySelector(selector).innerText;
-        }, this.emailRequiredValidationLocator);
+        var msg = await this.page.$eval(this.emailRequiredValidationLocator, e => {
+            return e.innerText;
+        }, );
 
         return msg === this.unknownUserValidationMessage;
     };     
