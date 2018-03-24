@@ -11,7 +11,8 @@ describe('When looking at the performance', () => {
         await page.waitForSelector('table#result');
 
         const performanceTiming = await page.evaluate(() => 
-            JSON.stringify(window.performance));
+            JSON.stringify(window.performance)
+        );
         //console.log(performanceTiming);           
 
         //lets get how long the page took to server
@@ -23,5 +24,3 @@ describe('When looking at the performance', () => {
 
     }));
 });
-
-

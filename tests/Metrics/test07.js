@@ -21,7 +21,3 @@ describe('When looking at the metrics', () => {
 
     }));
 });
-
-        
-        
-     
